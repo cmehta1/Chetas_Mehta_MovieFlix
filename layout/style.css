@@ -1,0 +1,252 @@
+body{
+    margin:0 auto;
+    background-image: url('./img/12.jpg');
+    background-repeat: repeat-y;
+    background-size: 100% 720px;
+
+}
+
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+
+.form-input{
+    color: white;
+}
+
+
+.advsearch{
+    color: white;
+    padding: 5px 16px;
+    margin: 0px ;
+    text-align: center;
+
+    display: inline-block;
+    font-size: 14px;
+
+
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.Button-signout{
+    background-color: #36A0FF;
+    color: white;
+}
+
+.button {
+    background-color: black; /* Green */
+
+    color: white;
+    padding: 5px 16px;
+    margin: 0px ;
+    text-align: center;
+
+    display: inline-block;
+    font-size: 14px;
+
+
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 30px;
+
+}
+
+.search{
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
+.nav-link{
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 30px;
+
+}
+
+.navbar-brand{
+    font-family: "Lucida Sans";
+    background-color: black;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    color: black !important;
+}
+
+.nav{
+    background-color: black;
+}
+.chatz{
+    font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+}
+
+
+
+.col-md-12{
+    height:50px;
+    width: 25px;
+}
+.hd{
+    color: #2F82AB;
+}
+.well-sm{
+    height: 540px;
+    width: 500px;
+}
+
+.flip3D{ width:240px; height:200px; margin:10px; float:left;}
+.flip3D > .front{
+    position:absolute;
+    transform: perspective( 600px ) rotateY( 0deg );
+    background:skyblue; width:240px; height:210px; border-radius: 7px;
+    backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+}
+.flip3D > .back{
+    position:absolute;
+    transform: perspective( 600px ) rotateY( 180deg );
+    background:black; width:240px; height:210px; border-radius: 7px; color: white;
+    backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+    text-align: center;
+}
+.flip3D:hover > .front{
+    transform: perspective( 600px ) rotateY( -180deg );
+}
+.flip3D:hover > .back{
+    transform: perspective( 600px ) rotateY( 0deg );
+}
+
+.cards{
+    padding-top: 35px;
+}
+
+.movietitle{
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 25px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
+.genre{
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+.actors{
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+
+.moviedetails{
+    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-size: 17px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+
+
+}
+
+
+.con{
+    height:300px;
+    width:265px;
+    margin: 15px;
+    display:inline-block;
+    border: solid;
+    border-color: black;
+    background-color: black;
+
+}
+
+.movie_name{
+    color: white;
+    font-size: small;
+    text-align: center;
+}
+
+
+.cont{
+    padding-top: 100px;
+}
+
+
+
+.search-box,.close-icon,.search-wrapper {
+    position: relative;
+    padding: 3px;
+}
+.search-wrapper {
+    width: 200px;
+    margin: auto;
+    margin-top: 25px;
+}
+.search-box {
+    width: 12%;
+    border: 1px solid #ccc;
+    outline: 0;
+    border-radius: 15px;
+    text-align: center;
+
+}
+.search-box:focus {
+    box-shadow: 0 0 15px 5px #b0e0ee;
+    border: 2px solid #bebede;
+}
+.close-icon {
+    border:1px solid transparent;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+    cursor: pointer;
+}
+.close-icon:after {
+    content: "X";
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: #36A0FF;
+    z-index:1;
+    right: 35px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 2px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+    box-shadow: 0 0 2px #E50F0F;
+    cursor: pointer;
+}
+.search-box:not(:valid) ~ .close-icon {
+    display: none;
+}
