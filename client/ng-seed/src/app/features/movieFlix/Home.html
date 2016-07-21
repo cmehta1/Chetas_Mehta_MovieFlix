@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="plunker">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://use.fontawesome.com/c99a2be993.js"></script>
+
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+    <script src="pagination.js"></script>
+
+</head>
+<body>
+
+<div ng-controller="RecipeController">
+<nav navbar navbar-dark bg-primary>
+
+
+    <!--a class="navbar-brand" href="Index.html" style="color: #36A0FF;  font-size: 150%"> MovieFlix  </a-->
+
+    <a class="navbar-brand" href="Index.html" style="color: darkturquoise;  font-size: 150%">
+
+        <img src='./img/new1.PNG' style="height: 50px; width: 150px" alt="MovieFlixLOGO" />
+
+    </a>
+
+    <ul class="nav navbar-nav" style="float: right" >
+
+    <li class="nav-item">
+        <a style="color: white;  font-size: 150%">Search:</a>
+    </li>
+    <li class="nav-item">
+        <input type="text" ng-model ="globalSearch.$" style="margin-top: 12px" >
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color: white;  font-size: 150%" href="signin.html">SignIn </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color:white;  font-size: 150%"  href="signup.html">SignUp</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" style="color:white;  font-size: 150%"  href="contact.html">Contact Us</a>
+    </li>
+</ul>
+</nav>
+
+<br>
+<div style="padding-top: 35px">
+<p style="float: right">
+    <i style="color: black; margin-top: 3px" class="fa fa-sort fa-2x" ></i>
+
+
+
+    <button class="button button1" ng-click="sortBy('Year')">Year</button>
+    <button class="button button2"  ng-click="sortBy('imdbRating')">imdbRatings</button>
+    <button class="button button3"  ng-click="sortBy('imdbVotes')">imdbVotes</button>
+
+</p>
+</div>
+
+
+<div class="search-wrapper" style="display: inline; align-content: center">
+    <p style="float: left; margin-top: 55px; color: white">
+      Advanced Search :
+    </p>
+    <form>
+    <input type="text" name="focus" required class="search-box" placeholder="Year" ng-model ="searchText.Year" style="margin-top: 30px" />
+        <button class="close-icon" type="reset" ng-click="go_back()" > </button>
+    <input type="text" name="focus" required class="search-box" placeholder="Type" ng-model ="searchText.Type" style="margin-top: 30px" />
+        <!--button class="close-icon" type="reset"></button-->
+    <input type="text" name="focus" required class="search-box" placeholder="Genre" ng-model ="searchText.Genre" style="margin-top: 30px" />
+        <!--button class="close-icon" type="reset"></button-->
+    <!--input type="text" placeholder="Year"  ng-model ="searchText.Year" style="margin-top: 30px" >
+    <input type="text" placeholder="Type"  ng-model ="searchText.Type" style="margin-top: 30px" >
+    <input type="text" placeholder="Genre"  ng-model ="searchText.Genre" style="margin-top: 30px" -->
+
+    </form>
+
+</div>
+
+    <div ng-controller="ModalDemoCtrl">
+<div class="cards" >
+
+    <!--.slice(((currentPage-1)*totalItems), ((currentPage)*totalItems), ((currentPage+1)*totalItems), ((currentPage+2)*totalItems))-->
+    <div class="con" ng-init="propertyName = null; reverse = false" ng-repeat = "recipe in list | filter:globalSearch | filter:searchText | orderBy:propertyName:reverse">
+        <div class="flip3D">
+        <div class="back">
+            <p class="movie_name"> Type: {{recipe.Type}}</p>
+            <p class="movie_name"> Genre: {{recipe.Genre}}</p>
+            <!--p class="movie_name"> RunTime: {{recipe.Runtime}} </p-->
+            <p class="movie_name"> Year: {{recipe.Year}} </p>
+            <p class="movie_name"> IMDB votes: {{recipe.imdbVotes}} </p>
+            <a type="button" href="http://www.imdb.com/title/{{recipe.imdbID}}" class="btn btn-primary" >Go To IMDB</a>
+            <button class="btn btn-primary" ng-click="open(recipe)">Flix In</button>
+        </div>
+        <div class="front" style="content:url({{recipe.Poster}})">Box 1 - Front</div>
+    </div>
+
+        <p class="movie_name"> {{recipe.Title}}</p>
+        <p class="movie_name"> IMDB Raings: {{recipe.imdbRating}}</p>
+
+    </div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <h1 style="margin-left: 10%; color:darkblue"> {{item.Title}}</h1>
+        <pre> Genre: {{item.Genre}}</pre>
+        <div class="modal-body" style="height: 500px">
+
+
+            <div class="main1" style="display: inline">
+                <div class="left" style="float: left">
+
+                    <div style="content:url({{item.Poster}});height: 450px; width: 300px"></div>
+                </div>
+                <div class="right" style="margin-top: 100px;  float: left; margin-left: 3%">
+
+                    <p> Type: {{item.Type}}</p>
+                    <!--pre> Genre: {{item.Genre}}</pre-->
+                    <p> RunTime: {{item.Runtime}} </p>
+                    <p> Year: {{item.Year}} </p>
+                    <p> IMDB votes: {{item.imdbVotes}} </p>
+                    <p> IMDB Raings: {{item.imdbRating}}</p>
+
+                    <div ng-controller="RatingDemoCtrl" style="margin-top: 20%">
+                        <h4 style="margin-left: 10%">User Rating: </h4>
+                        <uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                        <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--<div class="front" style="content:url({{item.Poster}})"></div>-->
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    </div>
+
+
+<!--div style="margin-left: 40%">
+
+    <uib-pagination total-items=40 ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+</div-->
+
+</div>
+</div>
+</body>
+</html>
+
